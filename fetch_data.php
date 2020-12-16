@@ -51,11 +51,9 @@
 
     }
     
-    /*else if($_POST['date'] == '' and $_POST['page_no'] >= '2'){
+    else if($_POST['start_date'] == '' and $_POST['end_date'] == '' and $_POST['page_no']=='' and $_POST['rows']=='1000' ){
 
-        $offset = ($_POST['page_no'] - 1) * 20;
-
-        $query = "SELECT * from dbo.JobCardM join dbo.JobCardD on JobCardD.JCdCodeNew=JobCardM.JCMCodeNew order by JobCardM.JCMDate desc OFFSET $offset ROWS FETCH NEXT 20 ROWS ONLY";
+        $query = "SELECT TOP 1000 * from dbo.JobCardM join dbo.JobCardD on JobCardD.JCdCodeNew=JobCardM.JCMCodeNew order by JobCardM.JCMDate desc";
 
         $statement = $conn->prepare($query);
 
@@ -94,7 +92,7 @@
             $i++;
         }
 
-    }*/
+    }
 
     else if($_POST['start_date'] and $_POST['end_date'] == '' and $_POST['page_no'] and $_POST['rows']){
 

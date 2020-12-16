@@ -29,7 +29,7 @@
         localStorage.setItem('rows', rows)
         fetch_data(localStorage.getItem("start_date"), localStorage.getItem('end_date'), localStorage.getItem('page_no'), localStorage.getItem('rows'));
 
-		fetch_pagination(localStorage.getItem("page_no"), localStorage.getItem('rows'));
+		fetch_pagination(localStorage.getItem("page_no"), localStorage.getItem('rows'), localStorage.getItem('start_date'), localStorage.getItem('end_date'));
 
         function fetch_data(start_date, end_date, page_no, rows){
             $.ajax(
@@ -49,14 +49,16 @@
             )
         }
 
-		function fetch_pagination(page_no, rows){
+		function fetch_pagination(page_no, rows, start_date, end_date){
 			$.ajax(
 				{
 					url:'fetch_page_number.php',
 					method: 'POST',
 					data: {
 						page_no:page_no,
-                        rows: rows
+                        rows: rows,
+                        start_date:start_date,
+                        end_date:end_date
 					},
 					success: function(data){
 						$('#pagination-nav').html(data);
@@ -65,7 +67,7 @@
 			)
 		}
 
-        $('#startdatepicker').datepicker({
+        /*$('#startdatepicker').datepicker({
             dateFormat: "yy-m-dd",
             onSelect: function(dateText, inst) {
                 $("input[name='start']").val(dateText);
@@ -83,7 +85,7 @@
                 fetch_pagination('1', localStorage.getItem('rows'));
                 fetch_data(localStorage.getItem("start_date"),localStorage.getItem('end_date'), '1', localStorage.getItem("rows"));
             }
-        });
+        });*/
 
         $('input[name="daterange"]').daterangepicker({
             opens: 'left'
@@ -91,7 +93,7 @@
             localStorage.setItem('start_date',start.format('YYYY-MM-DD'))
             localStorage.setItem('end_date',end.format('YYYY-MM-DD'))
             console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-            fetch_pagination('1', localStorage.getItem('rows'));
+            fetch_pagination('1', localStorage.getItem('rows'), localStorage.getItem('start_date'), localStorage.getItem('end_date'));
             fetch_data(localStorage.getItem("start_date"),localStorage.getItem('end_date'), '1', localStorage.getItem("rows"));
         });
 
@@ -101,19 +103,21 @@
             fetch_data(localStorage.getItem("date"), localStorage.getItem('page_no'), localStorage.getItem("rows"));
         })
         */
-        $('#rowNum').change(function(){
-            var rows = $(this).val();
-            localStorage.setItem("rows",rows)
-            console.log(rows)
-            fetch_data(localStorage.getItem("start_date"),localStorage.getItem('end_date'), localStorage.getItem('page_no'), localStorage.getItem("rows"));
-        })
-
+       
         $(document).on('click', '.paginate-data', function(){
             var page_no = $(this).data('pageno');
             localStorage.setItem("page_no", page_no)
             fetch_data(localStorage.getItem("start_date"),localStorage.getItem('end_date'), localStorage.getItem('page_no'), localStorage.getItem("rows"));
-            fetch_pagination(localStorage.getItem('page_no'), localStorage.getItem('rows'));
+            fetch_pagination(localStorage.getItem('page_no'), localStorage.getItem('rows'), localStorage.getItem('start_date'), localStorage.getItem('end_date'));
             console.log(rows)
+        })
+
+        $('#rowNum').change(function(){
+            var rows = $(this).val();
+            localStorage.setItem("rows",rows)
+            console.log(rows)
+            fetch_pagination(localStorage.getItem('page_no'), localStorage.getItem('rows'), localStorage.getItem('start_date'), localStorage.getItem('end_date'));
+            fetch_data(localStorage.getItem("start_date"),localStorage.getItem('end_date'), localStorage.getItem('page_no'), localStorage.getItem("rows"));
         })
 
 		/*$(document).on('click', '.paginate-data', function(){

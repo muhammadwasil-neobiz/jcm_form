@@ -14,19 +14,26 @@
 							<h3 class="panel-title">Job Card Details</h3>
 						</div>
 						<div class="panel-body my-5">
-							<div class="row my-5">
-								<div class="col-md-6">
-									<div class="d-flex justify-content-center align-items-right">
-										<div class="form-inline">
-											<div class="form-group my-3 ml-4">
-												<label for="start">Start Date: </label>
-												<input type="text" id="startdatepicker" name="start" class="form-control" value="">
-												<label for="end">End Date: </label>
-												<input type="text" id="enddatepicker" name="end" class="form-control" value="">
+							<div class="d-flex">
+								<div class="row my-5 align-self-center">
+									<div class="col-md-6">
+										<div class="d-flex justify-content-center align-items-right">
+											<div class="form-inline">
+												<!--div class="form-group my-3 ml-4">
+													<label for="start">Start Date: </label>
+													<input type="text" id="startdatepicker" name="start" class="form-control" value="">
+													<label for="end">End Date: </label>
+													<input type="text" id="enddatepicker" name="end" class="form-control" value="">
+												</div-->
+												<div class="input-group my-3 ml-4">
+													<input type="text" class="form-control" name="daterange" value="" />
+												</div>
 											</div>
-											<div class="form-group my-3 ml-4">
-												<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
-											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="text-right text-sm-left">
+											<a target="__blank" href="./preview_data.php" class="btn btn-info">Preview Table</a>
 										</div>
 									</div>
 								</div>
