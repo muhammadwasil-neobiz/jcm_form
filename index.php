@@ -14,16 +14,19 @@
 							<h3 class="panel-title">Job Card Details</h3>
 						</div>
 						<div class="panel-body my-5">
-							<div class="row">
-								<div class="col-md-4">
+							<div class="row my-5">
+								<div class="col-md-6">
 									<div class="d-flex justify-content-center align-items-right">
-										<div class="form-group row my-3 ml-4">
-											<div class="input-group-prepend col-2">
-												<label class="input-group-text" for="date select">Select JCM Date</label>
+										<div class="form-inline">
+											<div class="form-group my-3 ml-4">
+												<label for="start">Start Date: </label>
+												<input type="text" id="startdatepicker" name="start" class="form-control" value="">
+												<label for="end">End Date: </label>
+												<input type="text" id="enddatepicker" name="end" class="form-control" value="">
 											</div>
-											<select class="form-control col-6" id="date-select" name="date-select">
-												
-											</select>
+											<div class="form-group my-3 ml-4">
+												<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+											</div>
 										</div>
 									</div>
 								</div>
@@ -63,28 +66,29 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-8">
-									<div class="d-flex justify-content-left">
-										<div id="pagination-nav">
+								<div class="form-inline">
+									<div class="d-flex align-self-center">
+										<div class="col-md-10">
+											<div class="d-flex justify-content-left">
+												<div id="pagination-nav">
 
-										</div>	
-									</div>
-								</div>
-								<div class="col-md-2">
-									<h4 class="text-right">
-										Number of Rows
-									</h4>
-								</div>
-								<div class="col-md-2">
-									<div class="d-flex justify-content-center">
-										<div class="form-group">
-											<select name="number_of_rows" class="form-control col-8" id="rowNum">
-												<option value="20" selected>20 (Default)</option>
-												<option value="40">40</option>
-												<option value="60">60</option>
-												<option value="80">80</option>
-												<option value="100">100</option>
-											</select>
+												</div>	
+											</div>
+										</div>
+										<div class="col-md-2">
+										
+											<div class="form-group mr-5">
+												<label>
+												Rows: 
+												</label>
+												<select name="number_of_rows" class="form-control" id="rowNum">
+													<option value="20" selected>20 (Default)</option>
+													<option value="40">40</option>
+													<option value="60">60</option>
+													<option value="80">80</option>
+													<option value="100">100</option>
+												</select>
+											</div>
 										</div>
 									</div>
 								</div>

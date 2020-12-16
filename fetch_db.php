@@ -29,11 +29,11 @@ $query = "SELECT * FROM dbo.UserInfo WHERE EMPUSERID = :user_id";
 
             if($subStatement->execute()){
 
-                echo '<br/>'.$ans['emploginpassword'];
+                //echo '<br/>'.$ans['emploginpassword'];
 
                 $name = $ans['EmpName'];
 
-                echo '<br/>'.$name;
+                echo json_encode(array('name'=>$name, 'password'=>$ans['emploginpassword']));
 
             }
 

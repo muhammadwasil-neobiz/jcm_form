@@ -1767,4 +1767,8 @@ ul.activity-timeline > li {
   pointer-events: none;
   color: blue;
 }
+.pagination{
+  margin-top: 12px;
+  padding-bottom: 20px;
+}
 /*# sourceMappingURL=main.css.map */

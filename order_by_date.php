@@ -2,7 +2,7 @@
 
     include('./db.php');
 
-    $query = "select TOP 40 JCMDate from dbo.JobCardM join dbo.JobCardD on JobCardD.JCdCodeNew=JobCardM.JCMCodeNew order by JobCardM.JCMDate desc";
+    $query = "select TOP 100 JCMDate from dbo.JobCardM join dbo.JobCardD on JobCardD.JCdCodeNew=JobCardM.JCMCodeNew group by JobCardM.JCMDate order by JobCardM.JCMDate desc";
 
     $statement = $conn->prepare($query);
 

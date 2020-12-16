@@ -8,7 +8,7 @@
 
     $statement->execute();
 
-    $row_count = $statement->rowCount();
+    $row_count = count($statement->fetchAll());
 
     $total_pages = ceil($row_count/20);
 
